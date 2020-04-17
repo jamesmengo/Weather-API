@@ -15,14 +15,17 @@ const forecast = (lat, lon, callback) => {
       callback('Unable to find weather information for this location', undefined)
     } else {
       const currentWeather = body.current;
-      console.log(currentWeather)
       const {
         temperature,
-        precip
+        precip,
+        weather_description,
+        feelslike
       } = currentWeather
       callback(undefined, {
         temperature,
-        probabilityRain: precip
+        probabilityRain: precip,
+        weather_description,
+        feelslike
       })
     }
   })
